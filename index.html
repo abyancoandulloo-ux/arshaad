@@ -783,7 +783,7 @@
         .vehicle-card .image-wrap {
             position: relative;
             overflow: hidden;
-            background: #f0f2f5; /* subtle background for contained images */
+            background: #f0f2f5;
         }
 
         .vehicle-card .image-wrap .zoom-hint {
@@ -810,10 +810,10 @@
         .vehicle-card img {
             width: 100%;
             height: 250px;
-            object-fit: contain; /* changed from cover to contain to show full car */
-            background: #f0f2f5; /* fallback background */
+            object-fit: contain;
+            background: #f0f2f5;
             transition: var(--transition);
-            padding: 8px; /* small padding to ensure the car doesn't touch edges */
+            padding: 8px;
         }
 
         .vehicle-card:hover img {
@@ -1516,8 +1516,8 @@
                 <div class="about-text">
                     <h3>Where Great Drivers Are Made</h3>
                     <p>
-                        With over a decade of experience, we provide high‑quality driving lessons
-                        across Mauritius. Our patient, certified instructors use modern teaching
+                        With over a decade of experience, we provide high‑quality <strong>professional</strong>
+                        driving lessons across Mauritius. Our patient, experienced instructors use modern teaching
                         techniques to help you master the road – whether you prefer a manual gearbox
                         or the ease of an automatic.
                     </p>
@@ -1528,12 +1528,13 @@
                         car damage</strong> through smart driving habits.
                     </p>
                     <ul class="about-features">
-                        <li><i class="fas fa-check-circle"></i> Certified Instructors</li>
+                        <!-- "Certified Instructors" removed as requested -->
                         <li><i class="fas fa-check-circle"></i> Manual &amp; Automatic</li>
                         <li><i class="fas fa-check-circle"></i> Flexible Scheduling</li>
                         <li><i class="fas fa-check-circle"></i> Modern Fleet</li>
                         <li><i class="fas fa-check-circle"></i> Post‑Licence Coaching</li>
                         <li><i class="fas fa-check-circle"></i> Car Care Basics</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Professional</strong> Instruction</li>
                     </ul>
                 </div>
             </div>
@@ -1552,7 +1553,8 @@
                 </h2>
                 <p class="section-subtitle mx-auto">
                     From first‑time drivers to defensive driving and car care – we have a course for you,
-                    available in both manual and automatic transmission.
+                    available in both manual and automatic transmission. All lessons are delivered with
+                    <strong>professional</strong> expertise and care.
                 </p>
             </div>
 
@@ -1705,7 +1707,7 @@
     </section>
 
     <!-- ============================================================
-    CONTACT (Name, Subject, Transmission, Message) - sends to WhatsApp
+    CONTACT (Name, Phone Number, Transmission, Message) - sends to WhatsApp
     ============================================================ -->
     <section class="contact section-padding" id="contact" aria-labelledby="contact-title">
         <div class="container">
@@ -1751,7 +1753,9 @@
                     <p class="form-sub">We'll get back to you within 24 hours.</p>
 
                     <input type="text" name="name" placeholder="Your Name" required aria-label="Your name" />
-                    <input type="text" name="subject" placeholder="Subject" required aria-label="Subject" />
+
+                    <!-- "Subject" replaced with "Phone Number" -->
+                    <input type="tel" name="phone" placeholder="Phone Number" required aria-label="Your phone number" />
 
                     <select name="transmission" required aria-label="Transmission preference">
                         <option value="" disabled selected>Select transmission</option>
@@ -1909,12 +1913,12 @@ JAVASCRIPT
 
                 // Get form values
                 const name = form.querySelector('input[name="name"]').value.trim();
-                const subject = form.querySelector('input[name="subject"]').value.trim();
+                const phone = form.querySelector('input[name="phone"]').value.trim();
                 const transmission = form.querySelector('select[name="transmission"]').value;
                 const message = form.querySelector('textarea[name="message"]').value.trim();
 
                 // Validate
-                if (!name || !subject || !transmission || !message) {
+                if (!name || !phone || !transmission || !message) {
                     alert('Please fill in all fields.');
                     return;
                 }
@@ -1922,7 +1926,7 @@ JAVASCRIPT
                 // Build WhatsApp message
                 const whatsappNumber = '23059488047'; // without +
                 const text =
-                    `Name: ${name}%0ASubject: ${subject}%0ATransmission: ${transmission}%0AMessage: ${message}`;
+                    `Name: ${name}%0APhone: ${phone}%0ATransmission: ${transmission}%0AMessage: ${message}`;
                 const url = `https://wa.me/${whatsappNumber}?text=${text}`;
 
                 // Open WhatsApp in new tab
