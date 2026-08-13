@@ -470,8 +470,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;  /* changed from cover to contain to avoid zooming on mobile */
             z-index: 0;
+            background: #0b1a2e; /* fallback background */
         }
 
         .hero-overlay {
@@ -480,7 +481,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Made much lighter: reduced opacity and changed to a softer black */
             background: rgba(0, 0, 0, 0.35);
             z-index: 1;
         }
@@ -503,7 +503,7 @@
             line-height: 1.1;
             color: var(--white);
             margin-bottom: 16px;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); /* helps readability on bright video */
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
         .hero-content h1 span {
